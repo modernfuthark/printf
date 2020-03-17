@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 
 			slen += format_switch((format + index), va_arg(args, void *));
 		}
-	
+
 		else if (format[index != '%'])
 			_putchar(format[index]);
 	}
