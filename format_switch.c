@@ -18,7 +18,6 @@ int format_switch(const char *spec, ...)
 	{
 	case '%':
 		_putchar('%');
-		slen++;
 		break;
 
 	case 'c': /* print character */
@@ -49,7 +48,7 @@ int format_switch(const char *spec, ...)
 		break;
 
 	case 'u': /* print unsigned int */
-		var = va_arg(arg, int);
+		var = va_arg(arg, unsigned int);
 		slen += itoa(var, 10);
 		break;
 

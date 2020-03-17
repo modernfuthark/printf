@@ -32,5 +32,5 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return (slen - 1);
+	return (slen);
 }
