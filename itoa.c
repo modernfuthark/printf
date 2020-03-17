@@ -1,7 +1,4 @@
-#include "testing.h"
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
+#include "holberton.h"
 /**
  * printer - Print a string, specifically for itoa
  * @str: String to print
