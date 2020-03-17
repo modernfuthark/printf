@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 
 	/* print string */
-	for (slen = 0, index = 0; format && format[slen]; index++, slen++)
+	for (slen = 0, index = 0; format && format[index]; index++, slen++)
 	{
 		/* check for format specifier */
 		if (format[index] == '%')
@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 /*			if (flag)*/
 				/* adjust output */
 
-			slen += format_switch((format + index), va_arg(args, int));
+			slen += format_switch((format + index), va_arg(args, void *));
 		}
 	
 		else if (format[index != '%'])
@@ -32,5 +32,5 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	return (slen);
+	return (slen - 1);
 }
