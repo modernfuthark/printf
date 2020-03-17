@@ -6,44 +6,45 @@
  * Return: string length
  */
 
-int format_switch(char spec, ...)
+int format_switch(const char *spec, ...)
 {
 	int slen = 0; 
 	int var;
 	char *str;
 	va_list arg;
 
-	vastart(arg, spec);
-	switch(spec) {
+	va_start(arg, spec);
+	switch(*spec) {
 	case '%' :
 		_putchar('%');
 		slen++;
-		return (slen);
+		break;
 
-	case 'c' :
-		var = va_arg(arg, int)
+	case 'c' : /* print character */
+		var = va_arg(arg, int);
 		_putchar(var);
 		slen++;
-		return (slen);
+		break;
 
-	case 's' :
+	case 's' : /* print string */
 		str = va_arg(arg, char *);
-		/* print string */
-		return (slen);
+		slen += printer(str);
+		break;
 
-	case 'd' :
+	case 'd' : /* print numbers */
 		var = va_arg(arg, int);
-		/* print numbers */
-		return (slen);
+ 		slen += itoa(var, 10);
+		break;
 
-	case 'i' :
+	case 'i' : /* print integers */
 		var = va_arg(arg, int);
-		/*print numbers */
-		return (slen);
+		slen += itoa(var, 10);
+		break;
 
-	case 'b' :
+	case 'b' : /* print binary */
 		var = va_arg(arg, int);
-		/* print binary */
-		return (slen);
+		slen += itoa(var, 2);
+		break;
 	}
+		return (slen);
 }

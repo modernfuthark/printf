@@ -21,13 +21,13 @@ int _printf(const char *format, ...)
 		if (format[index] == '%')
 		{
 			index++;
-			if (flag)
+/*			if (flag)*/
 				/* adjust output */
 
 			slen += format_switch((format + index), va_arg(args, int));
 		}
 	
-		else if (format[index != %])
+		else if (format[index != '%'])
 			_putchar(format[index]);
 	}
 
