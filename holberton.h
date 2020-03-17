@@ -7,6 +7,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
+int format_switch(const char *spec, ...);
 int printer(char *str);
 int itoa(int n, int base);
 int digitLen(int n);
