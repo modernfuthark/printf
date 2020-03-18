@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * format_switch - function print variables according to specifier
+ * format_switch2 - function print variables according to specifier
  * @spec: pointer to specifier
  * Return: string length
  */
