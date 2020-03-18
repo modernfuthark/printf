@@ -24,16 +24,10 @@ int format_switch(const char *spec, ...)
 		break;
 	case 'u': /* print unsigned int */
 		var = va_arg(arg, unsigned int);
-		slen += itoa(var, 10);
+		slen += itoa((var * -1), 10);
 		break;
-	case 'o': /* print octal */
-		var = va_arg(arg, int);
-		slen += itoa(var, 8);
-		break;
-	case 'x': /* print hexidecimal */
-		var = va_arg(arg, int);
-		slen += itoa(var, 16);
-		break;
+	default:
+		slen += format_switch2(spec, va_arg(arg, void *));
 	}
 		return (slen);
 }
