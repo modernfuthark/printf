@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 			index++;
 /*			if (flag)*/
 			if (format[index] == '%')
-				slen += _putchar('%');
+				_putchar('%');
 			else if (format[index] == 'c')
 				slen += _putchar(va_arg(args, int));
 			else if (format[index] == 's')
