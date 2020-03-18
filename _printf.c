@@ -5,32 +5,34 @@
  * @format: string to itterate
  * Return: bytes printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int index; /* keep track of location in format */
-	int slen; /* bytes printed */
+	int slen, index;
+	char *str = NULL;
 
 	va_start(args, format);
-
-	/* print string */
 	for (slen = 0, index = 0; format && format[index]; index++, slen++)
 	{
-		/* check for format specifier */
-		if (format[index] == '%')
+		if (format[index] == '%') /* check format specifier */
 		{
 			index++;
 /*			if (flag)*/
-				/* adjust output */
-
+			if (format[index] == '%')
+				slen += _putchar('%');
+			else if (format[index] == 'c')
+				slen += _putchar(va_arg(args, int));
+			else if (format[index] == 's')
+			{
+				str = _strdup(va_arg(args, char *));
+				slen += printer(str);
+				free(str);
+			}
 			slen += format_switch((format + index), va_arg(args, void *));
 		}
-
-		else if (format[index != '%'])
+		else if (format[index] != '%')
 			_putchar(format[index]);
 	}
-
 	va_end(args);
 	return (slen);
 }
