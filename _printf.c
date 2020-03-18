@@ -11,6 +11,8 @@ int _printf(const char *format, ...)
 	int slen, index;
 	char *str = NULL;
 
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	for (slen = 0, index = 0; format && format[index]; index++, slen++)
 	{
