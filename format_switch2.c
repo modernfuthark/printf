@@ -15,11 +15,15 @@ int format_switch2(const char *spec, ...)
 	{
 	case 'o': /* print octal */
 		var = va_arg(arg, int);
-		slen += itoa(var, 8);
+		slen += itoa(var, 8, 0);
 		break;
 	case 'x': /* print hexidecimal */
 		var = va_arg(arg, int);
-		slen += itoa(var, 16);
+		slen += itoa(var, 16, 0);
+		break;
+	case 'X': /*print capital hex*/
+		var = va_arg(arg, int);
+		slen += itoa(var, 16, 1);
 		break;
 	}
 		return (slen);

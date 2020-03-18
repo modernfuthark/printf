@@ -4,10 +4,12 @@
  * @str: String to print
  * Return: Length of string printed
  */
-int printer(char *str)
+int printer(char *str, int cap)
 {
 	int i;
 
+	if (cap == 1)
+		cap_string(str);
 	for (i = 0; str[i]; i++)
 	{
 		_putchar(str[i]);
@@ -22,7 +24,7 @@ int printer(char *str)
  * Return: Length of string converted
  */
 
-int itoa(int n, int base)
+int itoa(int n, int base, int cap)
 {
 	int i = 0, negFlag = 0, rem = 0, slen = 0;
 	char *buffer;
@@ -35,7 +37,7 @@ int itoa(int n, int base)
 	{
 		buffer[i] = '0';
 		buffer[++i] = '\0';
-		return (printer(buffer));
+		return (printer(buffer, 0));
 	}
 
 	if (n < 0 && base == 10)
@@ -55,7 +57,7 @@ int itoa(int n, int base)
 		buffer[i++] = '-';
 	buffer[i] = '\0';
 	buffer = rev_string(buffer);
-	slen = printer(buffer);
+	slen = printer(buffer, cap);
 	free(buffer);
 	return (slen);
 }

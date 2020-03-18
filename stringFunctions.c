@@ -71,3 +71,23 @@ char *_strdup(char *str)
 	/*copy[i] = '\0';*/
 	return (copy);
 }
+
+/**
+ * cap_string - Capitalize a string
+ * @str: String
+ * Return: Pointer to string
+ */
+
+char *cap_string(char *str)
+{
+	int i;
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] >= 98 && str[i] <= 122)
+		{
+			str[i] -= 32;
+		}
+	}
+	return (str);
+}

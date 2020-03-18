@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			else if (format[index] == 's')
 			{
 				str = _strdup(va_arg(args, char *));
-				slen += printer(str);
+				slen += printer(str, 0);
 				free(str);
 			}
 			slen += format_switch((format + index), va_arg(args, void *));
