@@ -25,6 +25,8 @@ int format_switch2(const char *spec, ...)
 		var = va_arg(arg, int);
 		slen += itoa(var, 16, 1);
 		break;
+	default:
+		break;
 	}
 		return (slen);
 }
